@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Product</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid">
+        <header> 
+            <div>
+                <h1>Products</h1>
+            </div>
+        </header>
+        <div class="container-fluid" style="margin-top: 20px">
+            <div class="row">
+                <div class="col-md-5">
+                    <img th:src="@{${product.getImage()}}" width="100%"/>
+                </div>
+                <div class="col-md-6" style="margin-left: 20px; margin-top: 30px">
+                    <div class="form-group">
+                        <h3><span th:text="${product.productName}"></span></h3>
+                    </div>
+                    <div class="form-group">
+                        <p th:text="${product.getDescription()}"></p>
+                    </div>
+                    <div class="form-group">
+                        <b>Item Code: </b><span th:text="${product.productID}"></span>
+                    </div>
+                    <div class="form-group">
+                        <b>Manufacturer: </b><span th:text="${product.manufacturer.name}"></span>
+                    </div>
+                    <div class="form-group">
+                        <b>Category: </b><span th:text="${product.category.name}"></span>
+                    </div>
+                    <div class="form-group">
+                        <b>Available units in stock: </b><span th:text="${product.quantity}"></span>
+                    </div>
+                    <div class="form-group">
+                        <p th:text="${product.getPrice() + 'USD'}" style="font-size: 20px"></p>
+                    </div>
+                    <div class="form-group">
+                        <a th:href="@{/}" type="button" class="btn btn-success" style="margin: 5px">
+                            <i class="  far fa-arrow-alt-circle-left"></i>
+                            back
+                        </a>
+                        <a th:href="@{/addToCart(id=${product.productID})}" type="button" class="btn btn-warning">
+                            <i class="fas fa-shopping-cart"></i>
+                            Order Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

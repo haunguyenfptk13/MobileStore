@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+    <header>
+        <div>
+            <h1>Products</h1>
+            <h4>Add products</h4>
+        </div>
+        <div class="b1">
+            <form action="#" th:action="@{/logout}" method="POST">
+                <button type="submit" class="btn btn-danger">Logout</button>
+            </form>
+        </div>
+    </header>
+    <div style="width:80%; margin: auto;">
+        <h4>
+            Add new product
+        </h4>
+        <hr style="margin:0;">
+    </div>
+    <form th:action="@{/addProduct}" method="get" th:object="${product}">
+        <table style="width:80%; margin-top:20px;">
+            <tr>
+                <td class="label-col">
+                    <div class="form-group">
+                        <label>Product Name</label>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <input type="text" th:field="*{productName}"><br/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label-col">
+                    <div class="form-group">
+                        <label>Unit Price</label>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <input type="text" th:field="*{price}"><br/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label-col">
+                    <div class="form-group">
+                        <label>Units In Stock</label>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <input type="text" th:field="*{quantity}"><br/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label-col">
+                    <div class="form-group">
+                        <label>Description</label>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <textarea name="" th:field="*{description}" cols="20" rows="2"></textarea>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label-col">
+                    <div class="form-group">
+                        <label>Manufacturer</label>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <input type="text" th:field="*{manufacturer.name}"><br/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label-col">
+                    <div class="form-group">
+                        <label>Category</label>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <input type="text" th:field="*{category.name}"><br/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label-col">
+                    <div class="form-group">
+                        <label>Condition</label>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <input type="radio" th:field="*{statusProduct.name}" th:value="new">New
+                        <input type="radio" th:field="*{statusProduct.name}" th:value="old">Old
+                        <input type="radio" th:field="*{statusProduct.name}" th:value="refurbished">Refurbished
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label-col">
+                    <div class="form-group">
+                        <label>Product image file</label>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <input type="file" th:field="*{image}"><br/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div class="form-group">
+                        <input type="submit" value="Add Product" class="btn btn-primary auto">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+
+</div>
+
+
+</body>
+</html>

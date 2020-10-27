@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+          integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+    <header>
+        <div>
+            <h1>Cart</h1>
+            <h4>All the selected products in your cart</h4>
+        </div>
+    </header>
+    <div class="table-cart">
+        <div style="float: left;">
+            <a th:href="@{/clearCart}" type="button" class="btn btn-danger">
+                <i class="far fa-times-circle"></i>
+                Clear Cart
+            </a>
+        </div>
+        <div style="float: right">
+            <button type="button" class="btn btn-primary">
+                <i class="fas fa-shopping-cart"></i>
+                Check out
+            </button>
+        </div>
+    </div>
+
+    <div style="margin: auto; width: 80%">
+        <table class="table">
+            <thread>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Unit price</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thread>
+            <tbody>
+            <tr th:each="map : ${session.CART.cart}">
+                <form action="" method="get">
+                    <td th:text="*{map.key.productName}"></td>
+                    <td th:text="*{map.value}"></td>
+                    <td th:text="*{map.key.price}"></td>
+                    <td th:text="*{map.key.price * map.value}"></td>
+                    <td>
+                        <a type="button" th:href="@{/removeItemCart(id=${map.key.productID})}" class="btn btn-danger">
+                            <i class="far fa-times-circle"></i>
+                            Remove
+                        </a>
+                    </td>
+                </form>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><b>Grand Total</b></td>
+                <td th:text="${session.CART.totalPrice()}"></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+        <div>
+            <a th:href="@{/}" type="button" class="btn btn-success">
+                <i class="far fa-arrow-alt-circle-left"></i>
+                Continue Shopping
+            </a>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

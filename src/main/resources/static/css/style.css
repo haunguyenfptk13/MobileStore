@@ -1,0 +1,70 @@
+/* common */
+header{
+    height: auto;
+    margin: auto;
+    padding-top: 20px; 
+    padding-left: 10%;
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+    background-color: #f1f1f1;
+    overflow: auto;
+    vertical-align: auto;
+}
+
+header div{
+    float: left;
+}
+
+header div h1{
+    font-size: 40px;
+}
+
+
+
+/* new product page */
+
+.b1{
+    width: auto;
+    height: auto;
+    float: right;
+    margin-right: 50px;
+}
+
+.label-col{
+    text-align:right;
+    padding-right:30px;
+}
+
+
+/* cart page */
+.table-cart{
+    height: auto;    
+    width: 80%;
+    margin: auto;
+}
+
+
+/*detail page*/
+.c1{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    width: 240px;
+    border: 1px solid #9e9d9d;
+    text-align: left;
+    padding: 10px;
+    float:left;
+    margin: 20px;
+}
+
+.card-title{
+    font-size: 24px;
+}
+
+
+
+
+
+
+
+
